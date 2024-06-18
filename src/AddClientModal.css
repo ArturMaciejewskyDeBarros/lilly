@@ -1,0 +1,65 @@
+/* AddClientModal.css */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; 
+    overflow-y: auto; /* Permite a rolagem no modal se o conteúdo for maior que a tela */
+}
+
+.modal-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    width: 50%;
+    max-height: 90%; /* Define a altura máxima para garantir a barra de rolagem */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    cursor: default; 
+    overflow-y: auto; /* Barra de rolagem interna se necessário */
+}
+
+.modal-content h2, .modal-content h3 {
+    color: #333;
+}
+
+.modal-content label {
+    display: block;
+    margin-bottom: 10px;
+}
+
+.modal-content input, .modal-content button {
+    margin-top: 5px;
+    padding: 10px;
+    width: 90%; /* Ajusta a largura dos campos de entrada */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.save-button, .back-button {
+    background-color: #e6bbc2;
+    color: white;
+    border: none;
+    padding: 10px 15px; /* Torna os botões um pouco menos largos */
+    margin-top: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px;
+    display: inline-block; /* Permite que os botões fiquem lado a lado */
+    width: 48%; /* Ajusta a largura dos botões para ocupar metade do espaço disponível */
+    margin-right: 2%; /* Adiciona uma pequena margem entre os botões */
+}
+
+.back-button {
+    background-color: #ccc;
+    margin-right: 0; /* Remove a margem direita do botão de voltar */
+}
+
+.modal-content {
+    position: relative; /* Necessário para parar a propagação corretamente */
+}

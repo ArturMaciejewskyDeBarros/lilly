@@ -1,0 +1,101 @@
+/* Clientes.css */
+.inicio-container {
+    display: flex;
+    height: 100vh;
+}
+  
+.sidebar {
+    width: 200px;
+    background-color: #e3abb4;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+}
+  
+.sidebar-item {
+    padding: 10px;
+    margin: 5px 0;
+    color: white;
+    text-decoration: none;
+}
+  
+.sidebar-item:hover, .sidebar-item.active {
+    background-color: #e6bbc2;
+}
+  
+.main-content {
+    flex-grow: 1;
+    padding: 20px;
+    background-color: #f7f7f7;
+    overflow: auto;
+}
+  
+.logout-button {
+    margin-top: auto;
+    padding: 10px 20px;
+    background-color: #e6bbc2;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+  
+.search-input {
+    padding: 10px 15px;
+    margin-right: 10px;
+    width: calc(70% - 30px);
+    border-radius: 20px;
+    border: 2px solid #e6bbc2;
+    background-color: white;
+    color: #333;
+}
+  
+.add-client-button {
+    padding: 10px 20px;
+    background-color: #e6bbc2;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 20px;
+    font-size: 16px;
+}
+
+/* Estilos para a tabela */
+.table {
+    width: 100%; /* Garante que a tabela use todo o espaço horizontal disponível */
+    border-collapse: collapse; /* Remove o espaço entre as bordas das células */
+    margin-top: 20px; /* Espaçamento acima da tabela */
+    table-layout: fixed; /* O layout fixo ajuda a controlar melhor a largura das colunas */
+}
+
+.table th, .table td {
+    padding: 12px; /* Aumenta o padding para mais espaço dentro das células */
+    border: none; /* Remove todas as bordas */
+    text-align: left;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis; /* Garante que textos longos não quebrem o layout */
+}
+
+.table th {
+    background-color: #e6bbc2; /* Cor de fundo para cabeçalhos */
+    color: white; /* Cor do texto para cabeçalhos */
+}
+
+.table tr:nth-child(even) {
+    background-color: #f9f9f9; /* Cor de fundo para linhas pares */
+}
+
+.table tr:hover {
+    background-color: #f1f1f1; /* Cor de fundo ao passar o mouse sobre uma linha */
+}
+
+.action-icons {
+    cursor: pointer;
+    margin-right: 10px; /* Espaço entre ícones de ação e outros elementos */
+    font-size: 20px; /* Tamanho dos ícones de ação */
+}
+
+.action-icons:hover {
+    color: #333; /* Cor ao passar o mouse sobre os ícones de ação */
+}

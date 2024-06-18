@@ -1,0 +1,47 @@
+.login-page {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-image: 
+    linear-gradient(rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.3)), 
+    url("./imagem/fundo.png.png");
+  background-size: cover;
+}
+
+
+.login-page form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.input-field {
+  margin-bottom: 20px;
+  padding: 10px;
+  border: 1px solid #e3abb4;
+  border-radius: 5px;
+}
+
+.login-page .error {
+  color: rgb(68, 8, 8);
+  margin-bottom: 10px;
+}
+
+.login-button {
+  background: #e3abb4;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  border-radius: 10px;
+  margin-top: 1px; /* Espaçamento acima do botão */
+}
+.login-logo {
+  width: 150px; /* Ou o tamanho que preferir */
+  height: auto; /* Mantém a proporção da imagem */
+  margin-bottom: 20px; /* Espaçamento abaixo da imagem */
+}
