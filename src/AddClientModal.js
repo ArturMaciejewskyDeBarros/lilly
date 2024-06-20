@@ -31,8 +31,9 @@ function AddClientModal({ client, onClose, onSave }) {
       }
     }
   }, [client]);
-  
-  const handleSubmit = () => {
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
     const clientData = {
       nome, email, celular, dataNascimento, cpf,
       endereco: {
@@ -52,22 +53,23 @@ function AddClientModal({ client, onClose, onSave }) {
 
   return (
     <div className="modal" onClick={handleOutsideClick}>
-      <div className="modal-content" onClick={e => e.stopPropagation()}>
+      <form className="modal-content" onClick={e => e.stopPropagation()} onSubmit={handleSubmit}>
         <h2>{client ? 'Editar Cliente' : 'Adicionar Cliente'}</h2>
         <h3>Informações Básicas</h3>
-        <label>Nome:<input type="text" value={nome} onChange={e => setNome(e.target.value)} /></label>
-        <label>E-mail:<input type="email" value={email} onChange={e => setEmail(e.target.value)} /></label>
-        <label>Celular:<InputMask mask="(99) 99999-9999" value={celular} onChange={e => setCelular(e.target.value)} /></label>
-        <label>Data de Nascimento:<input type="date" value={dataNascimento} onChange={e => setDataNascimento(e.target.value)} /></label>
-        <label>CPF:<InputMask mask="999.999.999-99" value={cpf} onChange={e => setCpf(e.target.value)} /></label>
-        <label>País:<input type="text" value={pais} onChange={e => setPais(e.target.value)} /></label>
-        <label>CEP:<InputMask mask="99999-999" value={cep} onChange={e => setCep(e.target.value)} /></label>
-        <label>Endereço:<input type="text" value={endereco} onChange={e => setEndereco(e.target.value)} /></label>
-        <label>Número:<input type="text" value={numero} onChange={e => setNumero(e.target.value)} /></label>
+        <label>Nome:<input type="text" value={nome} onChange={e => setNome(e.target.value)} required /></label>
+        <label>E-mail:<input type="email" value={email} onChange={e => setEmail(e.target.value)} required /></label>
+        <label>Celular:<InputMask mask="(99) 99999-9999" value={celular} onChange={e => setCelular(e.target.value)} required /></label>
+        <label>Data de Nascimento:<input type="date" value={dataNascimento} onChange={e => setDataNascimento(e.target.value)} required /></label>
+        <label>CPF:<InputMask mask="999.999.999-99" value={cpf} onChange={e => setCpf(e.target.value)} required /></label>
+        <h3>Endereço</h3>
+        <label>País:<input type="text" value={pais} onChange={e => setPais(e.target.value)} required /></label>
+        <label>CEP:<InputMask mask="99999-999" value={cep} onChange={e => setCep(e.target.value)} required /></label>
+        <label>Endereço:<input type="text" value={endereco} onChange={e => setEndereco(e.target.value)} required /></label>
+        <label>Número:<input type="text" value={numero} onChange={e => setNumero(e.target.value)} required /></label>
         <label>Complemento:<input type="text" value={complemento} onChange={e => setComplemento(e.target.value)} /></label>
-        <button className="save-button" onClick={handleSubmit}>Salvar</button>
-        <button className="back-button" onClick={onClose}>Voltar</button>
-      </div>
+        <button className="save-button" type="submit">Salvar</button>
+        <button className="back-button" type="button" onClick={onClose}>Voltar</button>
+      </form>
     </div>
   );
 }

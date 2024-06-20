@@ -12,14 +12,18 @@ function AddVendasClientes() {
 
   useEffect(() => {
     const fetchClients = async () => {
-      const q = query(collection(db, "Clientes"), orderBy("createdAt", "desc"), limit(25));
-      const querySnapshot = await getDocs(q);
-      const clientsData = querySnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
-      setClients(clientsData);
+      if (searchTerm) {
+        const q = query(collection(db, "Clientes"), orderBy("createdAt", "desc"), limit(25));
+        const querySnapshot = await getDocs(q);
+        const clientsData = querySnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+        setClients(clientsData);
+      } else {
+        setClients([]);
+      }
     };
 
     fetchClients();
-  }, []);
+  }, [searchTerm]);
 
   const handleSelectClient = (client) => {
     setSelectedClient(client);
@@ -44,7 +48,7 @@ function AddVendasClientes() {
         className="search-input"
       />
       <div className="client-list">
-        {clients.filter(client => 
+        {searchTerm && clients.filter(client => 
           client.nome.toLowerCase().includes(searchTerm.toLowerCase())
         ).map(client => (
           <div key={client.id} className={`client-item ${selectedClient === client ? 'selected' : ''}`} onClick={() => handleSelectClient(client)}>

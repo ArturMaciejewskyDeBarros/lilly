@@ -46,9 +46,12 @@ function AddAgendamentoModal({ onClose, onSave }) {
   };
 
   const handleClienteChange = (e) => {
-    const selected = clientes.find(cliente => cliente.id === e.target.value);
-    setSelectedCliente(e.target.value);
-    setSelectedClienteNome(selected ? selected.nome : '');
+    setSelectedClienteNome(e.target.value);
+  };
+
+  const handleClienteSelect = (cliente) => {
+    setSelectedCliente(cliente.id);
+    setSelectedClienteNome(cliente.nome);
   };
 
   return (
@@ -64,15 +67,17 @@ function AddAgendamentoModal({ onClose, onSave }) {
             onChange={handleClienteChange}
             className="search-input"
           />
-          <div className="client-options">
-            {clientes
-              .filter(cliente => cliente.nome.toLowerCase().includes(selectedClienteNome.toLowerCase()))
-              .map(cliente => (
-                <div key={cliente.id} onClick={() => { setSelectedCliente(cliente.id); setSelectedClienteNome(cliente.nome); }}>
-                  {cliente.nome}
-                </div>
-              ))}
-          </div>
+          {selectedClienteNome && (
+            <div className="client-options">
+              {clientes
+                .filter(cliente => cliente.nome.toLowerCase().includes(selectedClienteNome.toLowerCase()))
+                .map(cliente => (
+                  <div key={cliente.id} onClick={() => handleClienteSelect(cliente)}>
+                    {cliente.nome}
+                  </div>
+                ))}
+            </div>
+          )}
         </div>
         <div className="form-group">
           <label>Loja</label>

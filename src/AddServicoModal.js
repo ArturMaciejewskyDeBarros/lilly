@@ -18,7 +18,8 @@ function AddServicoModal({ servico, onClose, onSave }) {
     }
   }, [servico]);
 
-  const handleSave = () => {
+  const handleSubmit = (e) => {
+    e.preventDefault(); // Prevent form submission to allow for custom onSave behavior
     const servicoData = {
       nome,
       preco: parseFloat(preco.replace('R$', '').replace(/\./g, '').replace(',', '.')),
@@ -41,31 +42,36 @@ function AddServicoModal({ servico, onClose, onSave }) {
     <div className="modal-overlay">
       <div className="modal-content">
         <h2>{servico ? 'Editar Serviço' : 'Adicionar Serviço'}</h2>
-        <input
-          type="text"
-          placeholder="Nome do Serviço"
-          value={nome}
-          onChange={(e) => setNome(e.target.value)}
-          className="modal-input"
-        />
-        <input
-          type="text"
-          placeholder="Preço"
-          value={preco}
-          onChange={handlePrecoChange}
-          className="modal-input"
-        />
-        <input
-          type="text"
-          placeholder="Região Corporal"
-          value={regiaoCorporal}
-          onChange={(e) => setRegiaoCorporal(e.target.value)}
-          className="modal-input"
-        />
-        <div className="modal-buttons">
-          <button onClick={onClose} className="cancel-button">Cancelar</button>
-          <button onClick={handleSave} className="save-button">{servico ? 'Salvar' : 'Adicionar'}</button>
-        </div>
+        <form onSubmit={handleSubmit}>
+          <input
+            type="text"
+            placeholder="Nome do Serviço"
+            value={nome}
+            onChange={(e) => setNome(e.target.value)}
+            className="modal-input"
+            required
+          />
+          <input
+            type="text"
+            placeholder="Preço"
+            value={preco}
+            onChange={handlePrecoChange}
+            className="modal-input"
+            required
+          />
+          <input
+            type="text"
+            placeholder="Região Corporal"
+            value={regiaoCorporal}
+            onChange={(e) => setRegiaoCorporal(e.target.value)}
+            className="modal-input"
+            required
+          />
+          <div className="modal-buttons">
+            <button type="button" onClick={onClose} className="cancel-button">Cancelar</button>
+            <button type="submit" className="save-button">{servico ? 'Salvar' : 'Adicionar'}</button>
+          </div>
+        </form>
       </div>
     </div>
   );

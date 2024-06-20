@@ -19,7 +19,7 @@ function Inicio({ onLogout }) {
       <div className="main-content">
         <h1>Bem-vindo ao Lilly App!</h1>
         <p>Obrigado por fazer parte do Club de Estética mais completo do Brasil.</p>
-        <p>Seu trabalho ajuda a proporcionar os melhores serviços e produtos de beleza.</p>
+        <p>Nossa empresa se dedica a oferecer excelência em todos os aspectos da beleza.</p>
         <p>Juntos, estamos transformando o cuidado estético em uma experiência única!</p>
         <div className="background-image-container">
           <img src={require('./imagem/fundo.png.png')} alt="Background" className="background-image"/>

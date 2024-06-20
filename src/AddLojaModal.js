@@ -16,7 +16,8 @@ function AddLojaModal({ loja, onClose, onSave }) {
     }
   }, [loja]);
   
-  const handleSubmit = () => {
+  const handleSubmit = (e) => {
+    e.preventDefault();
     const lojaData = {
       nome, estado, cnpj,
       isActive: true,
@@ -33,14 +34,14 @@ function AddLojaModal({ loja, onClose, onSave }) {
 
   return (
     <div className="modal" onClick={handleOutsideClick}>
-      <div className="modal-content" onClick={e => e.stopPropagation()}>
+      <form className="modal-content" onClick={e => e.stopPropagation()} onSubmit={handleSubmit}>
         <h2>{loja ? 'Editar Loja' : 'Adicionar Loja'}</h2>
-        <label>Nome da Loja:<input type="text" value={nome} onChange={e => setNome(e.target.value)} /></label>
-        <label>Estado:<input type="text" value={estado} onChange={e => setEstado(e.target.value)} /></label>
-        <label>CNPJ:<InputMask mask="99.999.999/9999-99" value={cnpj} onChange={e => setCnpj(e.target.value)} /></label>
-        <button className="save-button" onClick={handleSubmit}>Salvar</button>
-        <button className="cancel-button" onClick={onClose}>Cancelar</button>
-      </div>
+        <label>Nome da Loja:<input type="text" value={nome} onChange={e => setNome(e.target.value)} required /></label>
+        <label>Estado:<input type="text" value={estado} onChange={e => setEstado(e.target.value)} required /></label>
+        <label>CNPJ:<InputMask mask="99.999.999/9999-99" value={cnpj} onChange={e => setCnpj(e.target.value)} required /></label>
+        <button className="save-button" type="submit">Salvar</button>
+        <button className="cancel-button" type="button" onClick={onClose}>Cancelar</button>
+      </form>
     </div>
   );
 }
