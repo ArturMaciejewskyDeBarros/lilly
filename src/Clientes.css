@@ -69,7 +69,7 @@
 
 .table th, .table td {
     padding: 12px; /* Aumenta o padding para mais espaço dentro das células */
-    border: none; /* Remove todas as bordas */
+    border: 0; /* Remove todas as bordas */
     text-align: left;
     overflow: hidden;
     white-space: nowrap;

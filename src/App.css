@@ -70,6 +70,7 @@
   width: 150px; /* Largura do botão aumentada */
   margin-top: 10px; /* Espaço adicionado acima do botão */
 }
+
 .bo-list {
   display: flex;
   flex-wrap: wrap;

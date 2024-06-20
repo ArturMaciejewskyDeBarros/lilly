@@ -82,7 +82,7 @@
 
 .table th, .table td {
   padding: 12px;
-  border: 1px solid #ddd;
+  border: none; /* Remove as bordas */
   text-align: left;
 }
 
