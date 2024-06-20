@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import './AddClientModal.css';
 import InputMask from 'react-input-mask';
-import { Timestamp } from 'firebase/firestore'; // Importação necessária para o timestamp
+import { Timestamp } from 'firebase/firestore';
 
 function AddClientModal({ client, onClose, onSave }) {
   const [nome, setNome] = useState('');
@@ -15,10 +15,8 @@ function AddClientModal({ client, onClose, onSave }) {
   const [numero, setNumero] = useState('');
   const [complemento, setComplemento] = useState('');
 
-  // Inicializa os valores ao abrir o modal para edição
   useEffect(() => {
     if (client) {
-      console.log("Editando cliente:", client);
       setNome(client.nome || '');
       setEmail(client.email || '');
       setCelular(client.celular || '');
@@ -40,11 +38,10 @@ function AddClientModal({ client, onClose, onSave }) {
       endereco: {
         pais, cep, endereco, numero, complemento
       },
-      isActive: true,  // Define o cliente como ativo
-      createdAt: client ? client.createdAt : Timestamp.now() // Mantém o createdAt original se estiver editando
+      isActive: true,
+      createdAt: client ? client.createdAt : Timestamp.now()
     };
     onSave(clientData);
-    onClose();  // Fecha o modal após salvar
   };
 
   const handleOutsideClick = (e) => {

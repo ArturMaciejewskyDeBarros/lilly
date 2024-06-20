@@ -1,0 +1,45 @@
+.step-container {
+    padding: 20px;
+    background-color: #f7f7f7;
+    border-radius: 10px;
+    max-width: 600px;
+    margin: auto;
+    text-align: center;
+  }
+  
+  .search-input {
+    padding: 10px;
+    width: 80%;
+    border-radius: 20px;
+    border: 2px solid #e6bbc2;
+    margin-bottom: 20px;
+  }
+  
+  .loja-list {
+    max-height: 300px;
+    overflow-y: auto;
+    margin-bottom: 20px;
+  }
+  
+  .loja-item {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    cursor: pointer;
+  }
+  
+  .loja-item.selected {
+    background-color: #e6bbc2;
+    color: white;
+  }
+  
+  .next-button {
+    padding: 10px 20px;
+    background-color: #e6bbc2;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 20px;
+  }
+  
